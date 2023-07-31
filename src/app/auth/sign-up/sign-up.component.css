@@ -1,0 +1,20 @@
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-up_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up_card {
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.sign-up_submit-button {
+  width: 100%;
+}

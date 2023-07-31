@@ -1,0 +1,33 @@
+<p *ngIf="isLoading$ | async" class="tasks_no-data">Loading tasks ...</p>
+
+<div class="tasks_controls">
+  <mat-button-toggle-group name="tasksState">
+    <mat-button-toggle [checked]="tasksState === 'active'" (change)="onStateClick('active')">
+      Active
+    </mat-button-toggle>
+    <mat-button-toggle [checked]="tasksState === 'archive'" (change)="onStateClick('archive')">
+      Archive
+    </mat-button-toggle>
+    <mat-button-toggle [checked]="tasksState === 'all'" (change)="onStateClick('all')">
+      All
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <button mat-raised-button (click)="onSortStateClick()">
+    <span *ngIf="tasksSortState === 'ask'">&#9650;</span>
+    <span *ngIf="tasksSortState === 'desk'">&#9660;</span>
+
+
+  </button>
+</div>
+
+
+<p *ngIf="!tasks.length" class="tasks_no-data">No tasks</p>
+
+<ul class="tasks_list" *ngIf="tasks.length">
+  <li *ngFor="let task of tasks">
+    <div>
+      <task [task]="task"></task>
+    </div>
+  </li>
+</ul>

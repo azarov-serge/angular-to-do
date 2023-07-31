@@ -1,0 +1,18 @@
+<div class="task-editor">
+  <mat-card class="task-editor_card">
+    <mat-card-content>
+      <form [formGroup]="editorForm" (ngSubmit)="onSubmit()" class="task-editor_form">
+        <mat-form-field class="task-editor_name">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required [readonly]="isLoading$ | async" />
+          <mat-error *ngIf="editorForm.controls.name.invalid">{{getNameMessage()}}</mat-error>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" class="task-editor_submit-button">
+          {{(isLoading$ | async) ? "Pending ..." : task ? "Update" :"Create"}}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>

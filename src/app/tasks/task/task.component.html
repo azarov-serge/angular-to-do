@@ -1,0 +1,21 @@
+<mat-card class="task_card" *ngIf="task">
+  <div class="task_card-header">
+    <span>{{task.createdAt.toLocaleString()}}</span>
+    <div>
+      <a mat-raised-button [routerLink]="['/edit-task', task.id]">
+        <mat-icon aria-label="User menu icon" fontIcon="edit"></mat-icon>
+      </a>
+      <button mat-raised-button class="task_delete-button" (click)="onDeleteTaskClick(task)">
+        <mat-icon aria-label="User menu icon" fontIcon="delete"></mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-card-content>
+    <mat-checkbox [checked]="task.isDone" (change)="onTaskToggleChange($event.checked, task)" color="primary">
+      <span [ngClass]="task.isDone ? 'task_card-name--is-done' : 'task_card-name'">#{{task.id}}. {{task.name}}</span>
+    </mat-checkbox>
+
+
+  </mat-card-content>
+</mat-card>
