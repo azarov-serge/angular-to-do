@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <div class="app-header_content">
+    <p class="app-header_title">Angular To-Do</p>
+
+    <div *ngIf="user">
+      <button mat-button color="primary" [matMenuTriggerFor]="userMenu">
+        <mat-icon aria-hidden="false" aria-label="User menu icon" fontIcon="person"></mat-icon>
+        <span>{{user.login}}</span>
+      </button>
+      <mat-menu #userMenu="matMenu">
+        <!-- as example -->
+        <!-- <a mat-menu-item [routerLink]="['/create-task']">Add task</a> -->
+        <button mat-menu-item (click)="onTasksClick()">Tasks</button>
+        <button mat-menu-item (click)="onAddTaskClick()">Add task</button>
+        <button mat-menu-item class="app-header_sign-out" (click)="onSignOutClick()">Sign out</button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

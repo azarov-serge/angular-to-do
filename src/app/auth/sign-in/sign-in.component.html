@@ -1,0 +1,26 @@
+<div class="sign-in">
+  <h1>Sign in</h1>
+  <mat-card class="sign-in_card">
+    <mat-card-content>
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="sign-in_form">
+        <mat-form-field>
+          <mat-label>Login</mat-label>
+          <input matInput formControlName="login" required [readonly]="isLoading$ | async" />
+          <mat-error *ngIf="signInForm.controls.login.invalid">{{getLoginMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password" required [readonly]="isLoading$ | async" />
+          <mat-error *ngIf="signInForm.controls.password.invalid">{{getPasswordMessage()}}</mat-error>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" class="sign-in_submit-button" [disabled]="isLoading$ | async">
+          {{(isLoading$ | async) ? "Pending ..." : "Sign in"}}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <p>or</p>
+  <a [routerLink]="['/sign-up']">Sign up</a>
+</div>

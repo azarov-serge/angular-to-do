@@ -1,0 +1,16 @@
+.tasks_controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.tasks_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tasks_no-data {
+  text-align: center;
+}
+

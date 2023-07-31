@@ -1,0 +1,14 @@
+.app-header_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.app-header_title{
+  text-align: center;
+}
+
+.app-header_sign-out {
+  color: #f44336;
+}
